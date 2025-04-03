@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Источники | Космос и технологии будущего</title>
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #a239ca;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+            background: linear-gradient(to right, var(--secondary), var(--light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: var(--light);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(110, 69, 226, 0.6);
+        }
+        
+        .sources-container {
+            padding: 3rem 0;
+        }
+        
+        .sources-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .sources-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .source-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .source-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .source-link {
+            color: var(--light);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            word-break: break-all;
+        }
+        
+        .source-link:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--light);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .sources-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Космик<span>Тех</span></a>
+                <a href="index.html" class="back-btn">На главную</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="sources-container">
+        <div class="container">
+            <h1 class="sources-title">Источники информации</h1>
+            
+            <div class="source-item">
+                <h2 class="source-title">Официальный сайт Роскосмоса</h2>
+                <a href="https://www.roscosmos.ru/" class="source-link" target="_blank">https://www.roscosmos.ru/</a>
+            </div>
+            
+            <div class="source-item">
+                <h2 class="source-title">Центр подготовки космонавтов им. Ю.А. Гагарина</h2>
+                <a href="https://www.gctc.ru/" class="source-link" target="_blank">https://www.gctc.ru/</a>
+            </div>
+            
+            <div class="source-item">
+                <h2 class="source-title">Московский планетарий</h2>
+                <a href="https://www.planetarium-moscow.ru/" class="source-link" target="_blank">https://www.planetarium-moscow.ru/</a>
+            </div>
+            
+            <div class="source-item">
+                <h2 class="source-title">Научно-популярный проект "Космодетки"</h2>
+                <a href="https://www.kosmoved.ru/" class="source-link" target="_blank">https://www.kosmoved.ru/</a>
+            </div>
+            
+            <div class="source-item">
+                <h2 class="source-title">Энциклопедия "Космонавтика"</h2>
+                <a href="http://www.cosmoworld.ru/" class="source-link" target="_blank">http://www.cosmoworld.ru/</a>
+            </div>
+            
+            <div class="source-item">
+                <h2 class="source-title">Научно-популярный журнал "Вселенная, пространство, время"</h2>
+                <a href="http://www.astronet.ru/" class="source-link" target="_blank">http://www.astronet.ru/</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- Убрана строка с копирайтом -->
+        </div>
+    </footer>
+</body>
+</html>

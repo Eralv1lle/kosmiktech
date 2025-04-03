@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космос и технологии будущего</title>
+    <style>
+        :root {
+            --primary: #6e45e2;
+            --secondary: #88d3ce;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #a239ca;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+            background: linear-gradient(to right, var(--secondary), var(--light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 26, 46, 0.7), rgba(26, 26, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(110, 69, 226, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(110, 69, 226, 0.6);
+        }
+        
+        .ticker {
+            background-color: rgba(162, 57, 202, 0.2);
+            padding: 0.8rem 0;
+            margin: 2rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-radius: 5px;
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: rgba(162, 57, 202, 0.1);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .right .timeline-content {
+            border-left: none;
+            border-right: 3px solid var(--primary);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(110, 69, 226, 0.3);
+        }
+        
+        .tech-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .tech-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tech-card:hover .tech-img img {
+            transform: scale(1.1);
+        }
+        
+        .tech-content {
+            padding: 1.5rem;
+        }
+        
+        .tech-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .tech-year {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .myths-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .myth-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+            overflow: hidden;
+            transition: background-color 0.25s ease;
+        }
+
+        .myth-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .myth-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.25s ease;
+            margin-left: 1rem;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .myth-answer {
+            max-height: 0;
+            overflow: hidden;
+            color: var(--secondary);
+            line-height: 1.6;
+            transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .myth-item.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .myth-item.active .myth-answer {
+            max-height: 500px;
+            padding: 1rem 0 0.5rem;
+        }
+
+        .myth-item.active .myth-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .game-container {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .game-cell {
+            background-color: rgba(255, 255, 255, 0.1);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+        
+        .game-cell:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .game-cell.revealed {
+            background-color: var(--accent);
+            cursor: default;
+        }
+        
+        .game-message {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            min-height: 2rem;
+        }
+        
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-option {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .quiz-option.selected {
+            background-color: var(--primary);
+            border-color: var(--secondary);
+        }
+        
+        .quiz-result {
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .quiz-result h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .quiz-result p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .achievement-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.2);
+        }
+        
+        .achievement-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            padding: 3rem 0 1.5rem;
+            color: var(--light);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            opacity: 1;
+        }
+        
+        .sources-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(162, 57, 202, 0.4);
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sources-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .sources-btn:hover::before {
+            left: 100%;
+        }
+        
+        .sources-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(162, 57, 202, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left, .right {
+                left: 0;
+                text-align: left;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right .timeline-content {
+                border-left: 3px solid var(--primary);
+                border-right: none;
+            }
+            
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Космик<span>Тех</span></a>
+                <ul class="nav-links">
+                    <li><a href="#history">История</a></li>
+                    <li><a href="#tech">Технологии</a></li>
+                    <li><a href="#myths">Мифы</a></li>
+                    <li><a href="#game">Игра</a></li>
+                    <li><a href="#quiz">Тест</a></li>
+                    <li><a href="#achievements">Достижения</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Космос и технологии будущего</h1>
+                <p>Открой для себя удивительный мир космоса и технологий, которые изменят наше будущее. Узнай о великих достижениях и подготовься к завтрашнему дню уже сегодня!</p>
+                <a href="#history" class="btn">Начать путешествие</a>
+                
+                <div class="ticker">
+                    <div class="ticker-content">
+                        🚀 Первый искусственный спутник Земли был запущен СССР в 1957 году • 
+                        👨‍🚀 Юрий Гагарин стал первым человеком в космосе 12 апреля 1961 года • 
+                        🌌 В Млечном Пути около 100-400 миллиардов звезд • 
+                        🪐 У Сатурна есть 274 подтвержденных спутника •
+                        🔭 Телескоп Джеймса Уэбба может видеть галактики, образовавшиеся через 200 миллионов лет после Большого взрыва •
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="history-section">
+        <div class="container">
+            <h2 class="section-title">История космонавтики</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">4 октября 1957</div>
+                        <p>Запуск первого искусственного спутника Земли "Спутник-1" Советским Союзом. Начало космической эры.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">12 апреля 1961</div>
+                        <p>Юрий Гагарин становится первым человеком в космосе на корабле "Восток-1". Полет длился 108 минут.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">16 июня 1963</div>
+                        <p>Валентина Терешкова - первая женщина-космонавт. Совершила 48 витков вокруг Земли за почти трое суток.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">21 июля 1969</div>
+                        <p>Нил Армстронг и Базз Олдрин высаживаются на Луну в ходе миссии "Аполлон-11". "Маленький шаг для человека..."</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">19 апреля 1971</div>
+                        <p>Запуск первой орбитальной станции "Салют-1". Начало эпохи долговременного пребывания человека в космосе.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">20 ноября 1998</div>
+                        <p>Запуск первого модуля Международной космической станции (МКС). Строительство завершено к 2011 году.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="tech-section">
+        <div class="container">
+            <h2 class="section-title">Технологии будущего</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-img">
+                        <img src="images\Mars.jpg" alt="Колонизация Марса">
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">Колонизация Марса</h3>
+                        <span class="tech-year">2040-2050 гг.</span>
+                        <p>Создание самодостаточных поселений с использованием местных ресурсов. Купола с земной атмосферой, производство кислорода из льда, выращивание растений в марсианском грунте.</p>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-img">
+                        <img src="images\PC.jpg" alt="Квантовые компьютеры">
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">Квантовые компьютеры</h3>
+                        <span class="tech-year">Уже тестируются</span>
+                        <p>Вычисления на основе квантовых битов (кубитов), которые могут находиться в суперпозиции состояний. Решают задачи за секунды, на которые обычным компьютерам потребовались бы годы.</p>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-img">
+                        <img src="images\II.jpg" alt="Искусственный интеллект">
+                    </div>
+                    <div class="tech-content">
+                        <h3 class="tech-title">Искусственный интеллект</h3>
+                        <span class="tech-year">2030-2040 гг.</span>
+                        <p>Системы ИИ, способные к самостоятельному обучению и творчеству. Помощь в научных открытиях, медицине, освоении космоса и решении глобальных проблем человечества.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="myths" class="myths-section">
+        <div class="container">
+            <h2 class="section-title">Космические мифы</h2>
+            <div class="myths-container">
+                <div class="myth-item">
+                    <div class="myth-question">
+                        <span>В космосе нет гравитации</span>
+                        <span class="myth-toggle">+</span>
+                    </div>
+                    <div class="myth-answer">
+                        <p>Неправда! Гравитация есть везде, просто космонавты на МКС находятся в состоянии свободного падения, что создает эффект невесомости. Гравитация Земли на высоте МКС (400 км) составляет около 90% от земной.</p>
+                    </div>
+                </div>
+
+                <div class="myth-item">
+                    <div class="myth-question">
+                        <span>Солнце - желтое</span>
+                        <span class="myth-toggle">+</span>
+                    </div>
+                    <div class="myth-answer">
+                        <p>На самом деле Солнце белое! Оно кажется желтым из-за рассеивания света в атмосфере Земли. В космосе Солнце выглядит как белый диск.</p>
+                    </div>
+                </div>
+
+                <div class="myth-item">
+                    <div class="myth-question">
+                        <span>В космосе нет звука</span>
+                        <span class="myth-toggle">+</span>
+                    </div>
+                    <div class="myth-answer">
+                        <p>Частично правда. В вакууме звуковые волны действительно не распространяются. Однако внутри космических кораблей и станций звук есть, так как там есть воздух. А некоторые космические объекты (например, пульсары) создают радиоволны, которые можно преобразовать в звук.</p>
+                    </div>
+                </div>
+
+                <div class="myth-item">
+                    <div class="myth-question">
+                        <span>Человек взорвется в вакууме</span>
+                        <span class="myth-toggle">+</span>
+                    </div>
+                    <div class="myth-answer">
+                        <p>Нет. Человек может выжить в вакууме 15-30 секунд. Кожа достаточно прочная, чтобы не разорваться, но возможны повреждения легких, если задержать дыхание, и быстрое испарение влаги с поверхности глаз и рта.</p>
+                    </div>
+                </div>
+
+                <div class="myth-item">
+                    <div class="myth-question">
+                        <span>Летом Земля ближе к Солнцу</span>
+                        <span class="myth-toggle">+</span>
+                    </div>
+                    <div class="myth-answer">
+                        <p>Это неверно для северного полушария! Земля действительно имеет эллиптическую орбиту, но в северном полушарии лето наступает, когда Земля находится дальше от Солнца. Смена сезонов происходит из-за наклона земной оси, а не расстояния до Солнца.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="game" class="game-section">
+        <div class="container">
+            <h2 class="section-title">Космическая миссия</h2>
+            <div class="game-container">
+                <h3 class="game-title">Найди пару космических объектов</h3>
+                <div class="game-message" id="game-message">Найди все пары за минимальное количество ходов!</div>
+                <div class="game-board" id="game-board"></div>
+                <button class="btn" id="restart-btn">Новая игра</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <div class="container">
+            <h2 class="section-title">Тест: Твоя космическая профессия</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="quiz-question">Что тебя больше всего привлекает в космосе?</div>
+                <div class="quiz-options" id="quiz-options">
+                    <div class="quiz-option" data-points="engineer">Техника и космические корабли</div>
+                    <div class="quiz-option" data-points="scientist">Научные исследования и открытия</div>
+                    <div class="quiz-option" data-points="pilot">Полет и управление аппаратами</div>
+                    <div class="quiz-option" data-points="biologist">Жизнь на других планетах</div>
+                </div>
+                <button class="btn" id="next-btn">Следующий вопрос</button>
+                
+                <div class="quiz-result" id="quiz-result">
+                    <h3 id="result-title">Твой результат</h3>
+                    <p id="result-text"></p>
+                    <button class="btn" id="retry-btn">Попробовать еще</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+            <h2 class="section-title">Российские космические достижения</h2>
+            <div class="achievements">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🚀</div>
+                    <h3 class="achievement-title">РД-180</h3>
+                    <p>Один из самых мощных и эффективных ракетных двигателей в мире. Используется на американских ракетах Atlas V.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔭</div>
+                    <h3 class="achievement-title">Спектр-РГ</h3>
+                    <p>Космическая обсерватория для изучения Вселенной в рентгеновском диапазоне. Составила подробную карту всего неба.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🛰️</div>
+                    <h3 class="achievement-title">ГЛОНАСС</h3>
+                    <p>Российская глобальная навигационная спутниковая система, аналог американского GPS.</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">👨‍🚀</div>
+                    <h3 class="achievement-title">Союз</h3>
+                    <p>Самая надежная в мире пилотируемая космическая система. Используется для доставки экипажей на МКС.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>КосмикТех</h3>
+                    <p>Образовательный проект о космосе и технологиях будущего для школьников 10-17 лет.</p>
+                    <a href="sources.html" class="sources-btn">Источники</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#history">История космонавтики</a></li>
+                        <li><a href="#tech">Технологии будущего</a></li>
+                        <li><a href="#myths">Космические мифы</a></li>
+                        <li><a href="#game">Космическая игра</a></li>
+                        <li><a href="#quiz">Профориентационный тест</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурсы</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.roscosmos.ru/" target="_blank">Роскосмос</a></li>
+                        <li><a href="https://www.gctc.ru/" target="_blank">Центр подготовки космонавтов</a></li>
+                        <li><a href="https://www.planetarium-moscow.ru/" target="_blank">Московский планетарий</a></li>
+                        <li><a href="https://www.kosmoved.ru/" target="_blank">Космодетки</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- Убрана строка с копирайтом -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Меню мифов (ваша версия)
+        document.querySelectorAll('.myth-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const mythItem = question.parentElement;
+                
+                // Закрываем другие мифы с анимацией
+                document.querySelectorAll('.myth-item').forEach(item => {
+                    if (item !== mythItem && item.classList.contains('active')) {
+                        item.style.transition = 'none';
+                        item.classList.remove('active');
+                        void item.offsetWidth;
+                        item.style.transition = '';
+                    }
+                });
+                
+                // Переключаем текущий миф
+                mythItem.classList.toggle('active');
+            });
+        });
+
+        // Игра "Найди пару"
+        const gameBoard = document.getElementById('game-board');
+        const gameMessage = document.getElementById('game-message');
+        const restartBtn = document.getElementById('restart-btn');
+        
+        const emojis = ['🚀', '🛸', '🛰️', '👨‍🚀', '👽', '🌍', '🌕', '🪐', '🌟', '☄️'];
+        let cards = [...emojis, ...emojis];
+        let revealedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+        let isBlocked = false;
+        
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        function createGameBoard() {
+            gameBoard.innerHTML = '';
+            cards = shuffleArray(cards);
+            revealedCards = [];
+            matchedPairs = 0;
+            moves = 0;
+            isBlocked = false;
+            gameMessage.textContent = 'Найди все пары за минимальное количество ходов!';
+            
+            cards.forEach((emoji, index) => {
+                const card = document.createElement('div');
+                card.className = 'game-cell';
+                card.dataset.index = index;
+                card.dataset.value = emoji;
+                card.addEventListener('click', handleCardClick);
+                gameBoard.appendChild(card);
+            });
+        }
+        
+        function handleCardClick(e) {
+            if (isBlocked) return;
+            
+            const selectedCard = e.target;
+            const selectedIndex = selectedCard.dataset.index;
+            
+            if (selectedCard.classList.contains('revealed')) return;
+            
+            selectedCard.textContent = selectedCard.dataset.value;
+            selectedCard.classList.add('revealed');
+            revealedCards.push(selectedCard);
+            
+            if (revealedCards.length === 2) {
+                moves++;
+                const [firstCard, secondCard] = revealedCards;
+                
+                if (firstCard.dataset.value === secondCard.dataset.value) {
+                    matchedPairs++;
+                    revealedCards = [];
+                    
+                    if (matchedPairs === emojis.length) {
+                        gameMessage.textContent = `Поздравляем! Ты нашел все пары за ${moves} ходов!`;
+                    }
+                } else {
+                    isBlocked = true;
+                    document.querySelectorAll('.game-cell').forEach(cell => {
+                        if (!cell.classList.contains('revealed')) {
+                            cell.classList.add('blocked');
+                        }
+                    });
+                    
+                    setTimeout(() => {
+                        firstCard.textContent = '';
+                        secondCard.textContent = '';
+                        firstCard.classList.remove('revealed');
+                        secondCard.classList.remove('revealed');
+                        revealedCards = [];
+                        isBlocked = false;
+                        
+                        document.querySelectorAll('.game-cell').forEach(cell => {
+                            cell.classList.remove('blocked');
+                        });
+                    }, 1000);
+                }
+            }
+        }
+        
+        restartBtn.addEventListener('click', createGameBoard);
+        createGameBoard();
+
+        // Тест на профессию
+        const quizQuestions = [
+            {
+                question: "Что тебя больше всего привлекает в космосе?",
+                options: [
+                    { text: "Техника и космические корабли", points: { engineer: 2 } },
+                    { text: "Научные исследования и открытия", points: { scientist: 2 } },
+                    { text: "Полет и управление аппаратами", points: { pilot: 2 } },
+                    { text: "Жизнь на других планетах", points: { biologist: 2 } }
+                ]
+            },
+            {
+                question: "Какой школьный предмет тебе нравится больше всего?",
+                options: [
+                    { text: "Физика", points: { engineer: 1, pilot: 1 } },
+                    { text: "Биология", points: { biologist: 2 } },
+                    { text: "Информатика", points: { engineer: 1, scientist: 1 } },
+                    { text: "Астрономия", points: { scientist: 1, pilot: 1 } }
+                ]
+            },
+            {
+                question: "Что бы ты взял с собой на Марс?",
+                options: [
+                    { text: "Набор инструментов", points: { engineer: 2 } },
+                    { text: "Научное оборудование", points: { scientist: 2 } },
+                    { text: "Схемы и карты", points: { pilot: 2 } },
+                    { text: "Семена растений", points: { biologist: 2 } }
+                ]
+            },
+            {
+                question: "Как ты реагируешь на нештатную ситуацию?",
+                options: [
+                    { text: "Ищу техническое решение", points: { engineer: 2 } },
+                    { text: "Анализирую причины", points: { scientist: 2 } },
+                    { text: "Сохраняю спокойствие и действую по инструкции", points: { pilot: 2 } },
+                    { text: "Пробую разные подходы", points: { biologist: 2 } }
+                ]
+            },
+            {
+                question: "Какое достижение в космосе тебя впечатляет больше всего?",
+                options: [
+                    { text: "Создание ракет и космических аппаратов", points: { engineer: 2 } },
+                    { text: "Открытие новых планет и галактик", points: { scientist: 2 } },
+                    { text: "Пилотируемые полеты и выход в открытый космос", points: { pilot: 2 } },
+                    { text: "Эксперименты с растениями и животными в космосе", points: { biologist: 2 } }
+                ]
+            }
+        ];
+
+        const quizQuestionElement = document.getElementById('quiz-question');
+        const quizOptionsElement = document.getElementById('quiz-options');
+        const nextBtn = document.getElementById('next-btn');
+        const quizResultElement = document.getElementById('quiz-result');
+        const resultTitleElement = document.getElementById('result-title');
+        const resultTextElement = document.getElementById('result-text');
+        const retryBtn = document.getElementById('retry-btn');
+
+        let currentQuestion = 0;
+        let scores = {
+            engineer: 0,
+            scientist: 0,
+            pilot: 0,
+            biologist: 0
+        };
+
+        function showQuestion() {
+            if (currentQuestion >= quizQuestions.length) {
+                showResult();
+                return;
+            }
+
+            const question = quizQuestions[currentQuestion];
+            quizQuestionElement.textContent = question.question;
+            quizOptionsElement.innerHTML = '';
+
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option';
+                optionElement.textContent = option.text;
+                optionElement.dataset.index = index;
+                optionElement.addEventListener('click', selectOption);
+                quizOptionsElement.appendChild(optionElement);
+            });
+        }
+
+        function selectOption(e) {
+            const selectedOption = e.target;
+            const optionIndex = selectedOption.dataset.index;
+            const question = quizQuestions[currentQuestion];
+            const option = question.options[optionIndex];
+
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+
+            selectedOption.classList.add('selected');
+            selectedOption.dataset.selected = true;
+        }
+
+        function showResult() {
+            quizQuestionElement.style.display = 'none';
+            quizOptionsElement.style.display = 'none';
+            nextBtn.style.display = 'none';
+            quizResultElement.style.display = 'block';
+
+            let maxScore = 0;
+            let resultProfession = '';
+            let resultDescription = '';
+
+            for (const profession in scores) {
+                if (scores[profession] > maxScore) {
+                    maxScore = scores[profession];
+                    resultProfession = profession;
+                }
+            }
+
+            switch (resultProfession) {
+                case 'engineer':
+                    resultTitleElement.textContent = 'Инженер космических систем';
+                    resultTextElement.textContent = 'Ты - технический гений! Твоя страсть к механизмам и системам делает тебя идеальным кандидатом для разработки космических кораблей, роботов и оборудования для освоения Вселенной.';
+                    break;
+                case 'scientist':
+                    resultTitleElement.textContent = 'Космический ученый';
+                    resultTextElement.textContent = 'Твой аналитический ум и любознательность помогут тебе делать великие открытия! Ты можешь изучать далекие галактики, черные дыры или искать признаки внеземной жизни.';
+                    break;
+                case 'pilot':
+                    resultTitleElement.textContent = 'Космонавт-пилот';
+                    resultTextElement.textContent = 'Ты рожден для полетов! Твои навыки управления, хладнокровие и быстрая реакция сделают тебя отличным пилотом космических кораблей будущего.';
+                    break;
+                case 'biologist':
+                    resultTitleElement.textContent = 'Космический биолог';
+                    resultTextElement.textContent = 'Ты - исследователь жизни! Твоя работа будет заключаться в изучении возможности жизни на других планетах, создании биосфер для колоний и адаптации земных организмов к космосу.';
+                    break;
+                default:
+                    resultTitleElement.textContent = 'Космический исследователь';
+                    resultTextElement.textContent = 'Ты многогранная личность с широким кругозором! В космической отрасли ты можешь найти себя в разных ролях - от оператора до руководителя миссий.';
+            }
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const selectedOption = document.querySelector('.quiz-option.selected');
+            
+            if (!selectedOption && currentQuestion < quizQuestions.length) {
+                alert('Пожалуйста, выберите вариант ответа');
+                return;
+            }
+
+            if (selectedOption) {
+                const question = quizQuestions[currentQuestion];
+                const optionIndex = selectedOption.dataset.index;
+                const option = question.options[optionIndex];
+                
+                for (const profession in option.points) {
+                    scores[profession] += option.points[profession];
+                }
+            }
+
+            currentQuestion++;
+            showQuestion();
+        });
+
+        retryBtn.addEventListener('click', () => {
+            currentQuestion = 0;
+            scores = {
+                engineer: 0,
+                scientist: 0,
+                pilot: 0,
+                biologist: 0
+            };
+            
+            quizQuestionElement.style.display = 'block';
+            quizOptionsElement.style.display = 'grid';
+            nextBtn.style.display = 'inline-block';
+            quizResultElement.style.display = 'none';
+            
+            showQuestion();
+        });
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Инициализация теста
+        showQuestion();
+    </script>
+</body>
+</html>
